@@ -1,0 +1,12 @@
+
+                             GENEL YAPTIĞI İŞ
+- Main sınıfında ki executorService nesnesinin içine iki tane Thread ekledik.
+- Bu Threadler OperationImpl sınıfındaki toplama ve çıkarma methodlarını kullanıyorlar.
+- Bu mothodları ise Operation interface'inden implements ediyorlar.
+
+                             THREAD NEDİR
+- Thread'ler iş parçacıkları olup , çoklu görevlerde senkronizasyon sağlamak amacıyla kullanılır.
+
+                             THREAD POOL
+- Sistemde hazır bir Thread havuzu oluşturur ve Threadle ilgili bir işlem oldunda bizde buradaki hazır Threadler ile işlerimizi
+- hallederiz.
