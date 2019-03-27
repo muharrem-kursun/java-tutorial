@@ -1,0 +1,27 @@
+
+					     SOCKET NEDİR
+	Bilgisayarın ağ üzerinde haberleşmesini sağlayan yapılardır.
+	Socketler bunun için adreslere ihtiyac duyar.
+	Bunlar IP adresleridir.
+
+					     IP ADRESİ NEDİR
+	Sockettin hangi bilgisayarla haberleğeceğini belirtir.
+	Ama bilgisayarda ki hangi program ile haberleşeceğini bilmesi için portlara ihtiyac duyar.
+
+					     PORT NEDİR
+	Bilgisayarlarımız da bir çok socket tabanlı program vardır.
+	Bu programların herbirinin bir portu vardır.
+	Kısaca portlar bilgisayar üzerindeki programları gösteren adreslerdir denebilir.
+
+					     SOCKET PROGRAMLADA CLIENT
+	Client porta bağlanabilir , istekte bulunabilir, dönen cevabı alabilir ve bağlantıyı kesebilir.
+
+					     SOCKET PROGRAMLAMADA SERVER
+	Hizmet veren sunucudur , client istediği zaman porta bağlanacak olduğu için server sürekli olarak açık kalıp portu
+	dinlemek zorundadır.
+
+	                     YAPTIGI İŞ
+	"127.0.0.1" hostu üzerindeki 2020 portunu dinleyen bir server'ımız var ve birbirleriyle meşajlaşa biliyorlar.
+
+
+
