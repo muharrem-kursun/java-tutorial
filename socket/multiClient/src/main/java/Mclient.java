@@ -8,15 +8,13 @@ import java.util.Scanner;
 
 public class Mclient {
 
-    Socket socket1 ;
-    BufferedReader bufferedReader ;
-    BufferedReader kbufferedReader1 ;
-    PrintWriter printWriter ;
-    Scanner scanner = new Scanner(System.in);
-    String input = null;
-    String output = null;
-    String name = null;
-    ArrayList<MclientThread> arrayList ;
+    private Socket socket;
+    private BufferedReader bufferedReader ;
+    private  BufferedReader kbufferedReader1 ;
+    private PrintWriter printWriter ;
+    private String output = null;
+    private String name = null;
+
     public  Mclient (String name)
     {
         this.name=name;
@@ -25,13 +23,13 @@ public class Mclient {
 
     public void start()
     {
-        try {
-            socket1 = new Socket("127.0.0.1",9999);
-            bufferedReader = new BufferedReader(new InputStreamReader(socket1.getInputStream()));
+        try { //gerekli nesneleri oluşturuyoruz.
+            socket = new Socket("127.0.0.1",9999);
+            bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             kbufferedReader1 = new BufferedReader(new InputStreamReader(System.in));
-            printWriter = new PrintWriter(socket1.getOutputStream());
-            arrayList = new ArrayList<MclientThread>();
-            printWriter.println(name);
+            printWriter = new PrintWriter(socket.getOutputStream());
+
+            printWriter.println(name);//server'a ilk olarak adını göndermesi için
         }
         catch (Exception e)
         {
@@ -41,14 +39,10 @@ public class Mclient {
     }
     public void write()
     {
-        //System.out.println(" Bir isim giriniz");
-       // name =scanner.nextLine();
-
-        try{
+        try{// Burada okuma ve gönderme işlemi yapıyoruz.
             MclientThread mclientThread = new MclientThread(bufferedReader);
-            arrayList.add(mclientThread);
             mclientThread.start();
-            while (true)
+            while (true)//veriyi okuyup gönderiyoruz.
             {
 
                 output = kbufferedReader1.readLine();
@@ -66,7 +60,7 @@ public class Mclient {
         }
         //kapatma işlemleri için
         try{
-            socket1.close();
+            socket.close();
             printWriter.close();
             bufferedReader.close();
             kbufferedReader1.close();
@@ -76,17 +70,12 @@ public class Mclient {
         {
             e.printStackTrace();
         }
-
-
     }
-
 
     public static void main (String [] args) {
     Scanner scanner = new Scanner(System.in);
-
-        System.out.println("Bir ad giriniz. ");
-        String name =scanner.nextLine();
-
-    new  Mclient(name);
+    System.out.println("Bir ad giriniz. ");
+    String name =scanner.nextLine();
+    Mclient mclient = new  Mclient(name);
     }
 }

@@ -6,54 +6,53 @@ import java.util.Date;
 
 public class MserverThread extends  Thread{
 
-    BufferedReader bufferedReader = null;
-    Mserver mserver = null;
-    BufferedReader kbufferedreader = null;
-    PrintWriter printWriter = null;
-    Socket socket = null;
-    String input = null;
-    boolean shouldRun = true;
-    int id =0;
+    private BufferedReader bufferedReader = null;
+    private Mserver mserver = null;
+    private BufferedReader kbufferedreader = null;
+    private PrintWriter printWriter = null;
+    private Socket socket = null;
+    private String input = null;
+    private boolean shouldRun = true;
+    private int id =0;
+    private String name = "";
     public MserverThread(Socket socket , Mserver mserver) {
         this.socket = socket;
         this.mserver = mserver;
-        id++;
+        id++;//silme işlemi için
     }
     @Override
     public void run() {
-        String name = "";
+
         try {
 
-                bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-                kbufferedreader = new BufferedReader(new InputStreamReader(System.in));
-                printWriter = new PrintWriter(socket.getOutputStream());
+                bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));//gelen veriyi okumak için
+                kbufferedreader = new BufferedReader(new InputStreamReader(System.in));//veri girmek için
+                printWriter = new PrintWriter(socket.getOutputStream());//veri göndermek için
 
             try {
 
 
                     name = bufferedReader.readLine();
-                    System.out.println(name +" odaya katıldı   "+new Date());
+                    System.out.println(name +" odaya katıldı   "+new Date());//odaya katılan kullanıcılar yazılıyor.
 
 
                 while (shouldRun) {
                         try {
-                            input = bufferedReader.readLine();
+                            input = bufferedReader.readLine();//veriyi okumak için
                         }
                         catch (Exception e)
                         {
-                            System.out.println( name +"   odadan ayrıldı  " +new Date());
+                            System.out.println( name +"   odadan ayrıldı  " +new Date());//odaya katılan kullanıcıtı yazdırmak için
                             break;
                         }
 
-                            System.out.println( input);
-                            sendStringToAllClient(input);
-
-
+                            System.out.println( input); //mesajı sever ekranına basmak için
+                            sendStringToAllClient(input);//mesajı tüm clientlere göndermek için
 
                 }
             }
             catch (NullPointerException e1)
-                {
+                { //kapatma işlemleri için
                     e1.printStackTrace();
                     mserver.mserverThreads.remove(id-1);
                     socket.close();
@@ -65,13 +64,11 @@ public class MserverThread extends  Thread{
                     e.printStackTrace();
 
                 }
-
-
         }
         catch (Exception e){
             e.printStackTrace();
         }
-        try {
+        try { // kapatma işlemleri için
 
             socket.close();
             printWriter.close();
@@ -81,7 +78,7 @@ public class MserverThread extends  Thread{
         }
         catch (Exception e)
         {
-
+            e.printStackTrace();
         }
 
 
@@ -89,13 +86,13 @@ public class MserverThread extends  Thread{
 
 
 
-    public void sendStringToClient(String text)
+    private  void sendStringToClient(String text)
     {
         printWriter.println(text);
         printWriter.flush();
     }
 
-    public void sendStringToAllClient(String text)
+    private void sendStringToAllClient(String text)
     {
      for(int i = 0; i < mserver.mserverThreads.size(); i++)
      {
