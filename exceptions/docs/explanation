@@ -1,0 +1,56 @@
+                                   EXCEPTION NEDİR
+
+        kelime anlamı olarak istisna anlamına gelmektedir.
+        Diyelim ki program da bir hata oluştu exceptionlar bize bu hatanın ne olduğunu ve nerede oldugunu bildirir.
+        Yani hata yönetimi işini yapar bunu yaparken şu kavramları kullanır.
+        Bunlar throw , throws , try , catch , finally 'dir.
+
+                                   TRY NEDİR
+
+        Programda bazen hata olma ihtimali olan yada hata fıraltan komutlar olabilir bu kısımlar try içine yazılır.
+        Böyle hatanın catch 'e düşmesi sağlanır ve hatanın yakalanması sağlanır.
+
+                                   CATCH NEDİR
+
+        Catch bloğu parametre olarak bir Exception alır ve eğer try ' da bir  hata varsa catch bunu yakalar.
+        Catch'e girilen parametre exception gibi genel olarak tanımlanacağı gibi belirli bir hata içinde yazılabilir.
+        Mesela IOException dersek sadece IO hatalarını yakalayacaktır.
+        Bazen bir try için de birden fazla hata olabilir böyle zamanlarda birden fazla catch yazılması gerekir.
+        çünkü her catch sadece bir hata yakalar.
+
+                                   FINALY NEDİR
+
+        Try ve catch den sonra gelen bloktur finaly bloğu mutlaka çalışan bloktur.
+        Bu blok genelde try içinde oluşturulan nesnelerin kapatılma işlemini yada programın kalan kısmının devam etmesini sağlamak
+        amacıyla kullanılabilir.
+
+                                   THROW NEDİR
+
+        Throw  hata fırlatmamıza yarayan yapıdır. Bu yapıda hata fırlatmak için fırlatılacak nesnenin Throwable tipinde yada
+        onun herhangi bir alt sınıfı tipinde olmak zorundadır.Throwable olmayan String , int , object , char ... gibi tipler de hata
+        fırlatılamaz.Throw tanımalanın iki yolu vardır birincisi catch bloğu için de parametre olarak kullanılabilir.
+        İkinci yolu ise new operatörü ile yeni bir nesne oluşturularak da kullanılabilir.
+        Throw ' un program da işleyişi şu şekildedir . Program bir throw 'a geldiğinde program durur ve en yakın try' yın catch 'inde
+        throw ile eşleşen bir hata varmı diye bakar yoksa sırada ki try 'ın catch ' ine bakar ve sonra diğer try' larında catch' ine
+        bakar yine bulamazsa program durur.
+
+                                   THROWS NEDİR
+
+        Bazen metotların belirli bir hata fırlatmalarını isteriz ve bunu Throws ile yapabiliriz.
+        Yani methodun fırlatacağı hataları throws ile sınırlarız.
+
+                                   CHECKEDEXCEPTION NEDİR
+
+        Exception sınıflarında içinde RuntimeException sınıflarını dışında kalan sınıflara checked exception denir.
+        Derleme anında mutlaka yakalanmaları gerekmektedir ve koddaki beklenmeyen durumları ifade ederler.
+        CheckedException' a örnek olarak ;
+        IOException , SqlException , InterruptedIOException ,EOFException ,FILENOTFOUNDException örnek olarak verilebilir.
+
+                                   UNCHECKEDEXCEPTION NEDİR
+        Error ve RuntimeException sınıfları ve bunların  alt sınıfları UncheckedException olarak tanımlanır.
+        Bu metotların yakalanması zorunlu değildir.Fakat kod hçbir zaman UncheckedException fırlatmayacak hale getirilmelidir.
+        Eğer bir program UncheckedException' a sebeb oluyorsa bu kodun hatalı olduğunu gösterir.
+        UncheckedException'a örnek olarak ;
+        NullPointerException , ArithmeticException , ClassCastException , IndexOutOfBoundsException , AbstactMethodError örnek
+        olarak verilebilir.
+
