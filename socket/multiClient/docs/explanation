@@ -1,0 +1,63 @@
+
+					     SOCKET NEDİR
+	   Bilgisayarın ağ üzerinde haberleşmesini sağlayan yapılardır.
+	   Socketler bunun için adreslere ihtiyac duyar.
+	   Bunlar IP adresleridir.
+
+					     IP ADRESİ NEDİR
+
+	   Sockettin hangi bilgisayarla haberleğeceğini belirtir.
+	   Ama bilgisayarda ki hangi program ile haberleşeceğini bilmesi için portlara ihtiyac duyar.
+
+
+
+					     PORT NEDİR
+
+	   Bilgisayarlarımız da bir çok socket tabanlı program vardır.
+	   Bu programların herbirinin bir portu vardır.
+	   Kısaca portlar bilgisayar üzerindeki programları gösteren adreslerdir denebilir.
+
+					     SOCKET PROGRAMLADA CLIENT
+
+	   Client porta bağlanabilir , istekte bulunabilir, dönen cevabı alabilir ve bağlantıyı kesebilir.
+
+					     SOCKET PROGRAMLAMADA SERVER
+
+	   Hizmet veren sunucudur , client istediği zaman porta bağlanacak olduğu için server sürekli olarak açık kalıp portu
+	   dinlemek zorundadır.
+
+	                     YAPTIGI İŞ
+
+	   "127.0.0.1" hostu üzerindeki 9999 portunu dinleyen bir server'ımız var server client'lardan gelen bilgileri birbirine gönderiyor.
+
+
+	                     MSERVER SINIFI
+
+        ArrayList<MserverThread> mserverThreads = new ArrayList<MserverThread>(); // MserverThread türünden değişkenleri tutan bir arraylist
+        ServerSocket serverSocket = null; //serversocket nesnesine ilklenndirme yaptım
+        Socket socket = null;//nesnesine ilklendirme yaptım.
+        serverSocket = new ServerSocket(9999);// 9999 portunu dinleyen bir serversocket nesnesi oluşturdum.
+        socket = serverSocket.accept();// server socket ile socket arasındaki bağlatıyı oluşturdum.
+        MserverThread mserverThread = new MserverThread(socket,this);//  MserverThread nesnesi oluşturdum this ile bu sınıfı referan olarak gösterdim.
+        mserverThreads.add(mserverThread);//Arrylist' mserverThread nesnesini ekledim.
+        mserverThread.start(); // Thread'i başlattım.
+
+                         MCLIENT SINIFI
+
+        socket1 = new Socket("127.0.0.1",9999);//Socket nesnesinin host ve port değişkenlerini girerek bir socket nesnesi oluşturdum.
+        bufferedReader = new BufferedReader(new InputStreamReader(socket1.getInputStream()));//gönderilen veriyi almak için
+        kbufferedReader1 = new BufferedReader(new InputStreamReader(System.in));//veri girmek için
+        printWriter = new PrintWriter(socket1.getOutputStream()); veri göndermek için
+        printWriter.println(name);// name değişkenini servere gönderiyoruz.
+        printWriter.flush();//yazma ve okuma arasındaki zinciri kırmak için mesela okuduktan sonra yazma işlemi yapacak onu beklemeden tekrar okuyabilir.
+
+                         MSERVERTHREAD SINIFI
+
+        MserverThread sınıfı Thread sınıfını  extends ettiği için  run() metodunu kullanabiliyoruz.
+        run() metodu ile Threadlere iş yüklüyoruz.
+        Burda yaptığım Mserver sınıfı'nın okuma ve yazma işlemlerini  bu sınıfa yüklemek.
+
+                         MCLIENTTHREAD SINIFI
+
+        MclientThread sınıfı Thread sınıfı extends alır ve bu sayade run() methodunu kullanarak Threadlere iş yükleyebiliriz.
+        Burada Mclient sınıfının okuma ve ekrana yazma işlemini run() metoduna yükledim.
