@@ -1,0 +1,58 @@
+                                       TERNARY NEDİR
+
+     Ternary aşağıdaki mantıkla çalışan bir operatördür.
+     variable x = (expression) ? value if true : value if false (x = x<20 ? 10 : 20 gibi )
+
+     Yani eğer koşul doğru ise x değişkenine 'value if true' kısmındaki değişken değeri atanır.
+     Eğer koşul yanlış ise 'value if false' kısmındaki değişken degeri atanır.
+
+
+                                       MONETARY CALCULATION NEDİR//Parasal Hesaplama
+
+     Java da double ve float gibi ilkel veri tipleri kayan noktalı sayı tanımlamak için kullanılır.
+     Bazı kayan noktalı sayıların  değerleri göründüğünden faklıdır.
+     örneğin aşağıdakiler gibi ;
+     1.1 = 1.100000000000000088817841970012523233890533447265625
+     1.4 = 1.399999999999999911182158029987476766109466552734375
+     1.6 = 1.600000000000000088817841970012523233890533447265625
+     1.7 = 1.6999999999999999555910790149937383830547332763671875
+     1.8 = 1.8000000000000000444089209850062616169452667236328125
+     1.9 = 1.899999999999999911182158029987476766109466552734375
+
+     Yukarıdaki sorunu çözmenin iki yolu var birincisi 'printf("%.2f",sayi)' kullanmak ikincisi ise
+     BigDecimal sınıfının String constructor'unu kullanmaktır.
+
+                                         OVERFLOW //TAŞMA
+     int bir sayi 32 bittir yani -2^31 ve (2^31)-1 (maksimum değeri 2147483647'dir )arasında değer alır.
+     Java'da tamsayılar otomatik olarak int olarak tanımlanır. yani bir işlem tamsayılar ile bir işlem yaptığımızda
+     en fazla int maksimum değerine kadar  değer alabilir. Bunun önüne geçmek için ilk sayıdan sonra "L" yazılır.
+     Böylece o sayı ve o sayıdan sonrasını derleyici long olarak görür.long veri tipi 64 bittir yani -2^63 ile (2^63)-1
+     arasındadır. Bu program için bize gerekli büyüklüğü sağlamış olur.
+
+                                         HEXADECIMAL
+     Java da hexadecimal sayılar 0x ile başlar.mesala 10 sayısının hex karşılığı 0xa'dır.
+     örneğimizde cafebabe sayısı int maksimum boyutunu geçer (overflow) bu yüzden bu yüzden -889275714 negatif sayısı
+     ortaya çıkmıştır. Bunun nedeni int max değerine bir eklersek 2147483647+1 = -2147483648 olur bir daha eklersek -2147483647
+     olur. yani cafebabe = 2147483647 + -1*((2147483647+1) + 889275714) gibi bir şey oluyor.(işlemde hata varsa kusura bakamyın :))
+     son olarak int tipi 8 hex basamağa kadar izin verir long ise 16 hex basamağa kadar izin verir.
+
+                                         L LITERAL
+     Bu olay kısaca 1(bir) ile l(küçük L'nin) karışma olayıdır.örneğin 11(onbir) ile 1l(long tipinde olduğunu belirttiğimiz bir)
+     arasındaki karışıklığı engellemek amacıyla long tipini belirtirken büyük L kullanılmalıdır.
+
+                                         MULTICAST
+     örneğimizde -1 sayısını ilk olarak int tipindedir daha sonra byte tipine cast edilir. int tipi 32 bittir  byte tipi 8 bittir
+     ama bu işlemi yaparken bir sıkıntı çıkmaz çünkü byte türü -1 sayısını kapsar (yani herhangi bir overflow yok) daha sonra
+     char türüne cast edilir char türü unsigned (işaretsiz) 16 bittir ama burda söyle bir sorun vardır. char unsigned olduğu için
+     -1'i kapsamaz bu yüzden 2^16-1=65535 sonucu ortaya çıkar sonra bu sayı yine int'e cast edilir ve program biter.
+
+                                         SWAP
+     Bu örnekte geçici değişken kullanmasan iki int değişkenin  iki farklı yer değiştirme yöntemi ile değişimi gerçekleşiyor.
+     ilki toplama ve çıkarma işlemi kullanarak ikincisi veya işlemini kullanarak bu olayı gerçekleştirir.
+
+                                         COMPOUND ASSIGNMENT
+     Bu örnekte x=x+y; ile x+=y;'nin arasındaki farka değindim. x=x+y olayında aynı tip değişkenler toplanırken  x+=y; olayında
+     ise y'nin türünü x'in tipine cast edip öyle toplar. mesela x'in tipi long y'ninki int olsun x=x+y; ifadesi hata verirken
+     x+=y; ifadesi y'nin tipini long'a cast edip işlemi tamamlar.
+                                          KAYNAK
+     http://www.injavawetrust.com/java-se/java-puzzler/
