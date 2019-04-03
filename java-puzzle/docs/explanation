@@ -54,5 +54,18 @@
      Bu örnekte x=x+y; ile x+=y;'nin arasındaki farka değindim. x=x+y olayında aynı tip değişkenler toplanırken  x+=y; olayında
      ise y'nin türünü x'in tipine cast edip öyle toplar. mesela x'in tipi long y'ninki int olsun x=x+y; ifadesi hata verirken
      x+=y; ifadesi y'nin tipini long'a cast edip işlemi tamamlar.
+
+                                         CHAR CONNECTION
+     Bu örnekte iki tane char tipi verinin nasıl birleştirildiğini inceledim.
+
+                                         CHAR ARRAY
+     Bu örnekte bir char array'in ekrana yazılma durumlarını inceledim.ve arka planda çalışan fonksiyonlara baktım.
+     Fonksiyonlar için http://www.injavawetrust.com/java-puzzle-11-char-array/ adresine gidebilirsiniz.
+
+                                         STRING POOL
+     Bu örnekte programda kullanılan her bir string'in stringpool'da depolandığı ve nesne1 == nesne2 metodunun
+     karşılaştırma yaparken  nesne1 ve nesne2 nesnelerinin stringpool'da aynı yeri referans  edip etmediğini kontrol
+     eder aynı yeri referans ediyor ise true degeri dönderirir. ==  bir de sabit değişken olayına da bakar buna örnek
+     üzerinde değindim.
                                           KAYNAK
      http://www.injavawetrust.com/java-se/java-puzzler/
