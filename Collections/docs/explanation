@@ -1,0 +1,15 @@
+
+                                                      COLLECTIONS
+       İçerisinde birden fazla nesne bulundurabilen ve bunlara ekleme , silme ... gibi işlemleri yerine getiren yapılardır.
+       Collectionslar 3 ana başlıkta toplanmaktadır bunlar LIST,SET,MAP'tir.
+
+                                                      SET
+       Set'e bir eleman kayıt ettiğimizde aynı elemandan bir tane daha kayıt edemeyiz.
+       Yani tıpkı küme mantığı gibidir.
+
+                                                      LIST
+       List tıpkı set gibidir ama aynı elemandan birden fazla bulunabilir.
+
+                                                      MAP
+       Map anahtarlama mantığına dayanır.yani eklenen her eleman için bir tane anahtar eklenir anahtarı bilinen nesneye rahatlıkla
+       ulaşılabiliriz.
