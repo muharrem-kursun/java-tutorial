@@ -11,7 +11,6 @@ public class ListSortWithCollections {
         Collections.sort(list);
         //list.forEach(li->System.out.println(li));
         list.forEach(System.out::println);//üsttekide buda aynı işi görür.
-
         //baska bir sırama yolu
         List<Integer> list1 = loadData();
         Collections.sort(list,(o1,o2)->(o1>o2 ? 1:(o1==o2 ? 0 : -1)));//bir işe yaramadı
