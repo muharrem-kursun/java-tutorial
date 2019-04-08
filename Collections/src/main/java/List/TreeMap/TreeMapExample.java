@@ -10,7 +10,7 @@ public class TreeMapExample {
     public static void main(String[] args) {
         TreeMap<Integer,String> treeMap = new TreeMap<Integer, String>();
         treeMap.put(1,"birinci");//eleman ekleme
-        treeMap.put(2, "ikinci");//eleman ekleme
+        treeMap.put(4, "ikinci");//eleman ekleme
         treeMap.put(3,"ücüncü");//eleman ekleme
 
         Set set =  treeMap.entrySet();// treeMap' i set'e atadık

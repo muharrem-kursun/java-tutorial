@@ -13,3 +13,15 @@
                                                       MAP
        Map anahtarlama mantığına dayanır.yani eklenen her eleman için bir tane anahtar eklenir anahtarı bilinen nesneye rahatlıkla
        ulaşılabiliriz.
+                                                      LINKEDLIST
+       Bu tip listeler ya kendinden sonraki elemanın adresini tutar yada kendinden sonraki elemanın değerini tutar.
+       Listeye eleman ekleme konusunda ArrayList'lerden daha etkilidirler.
+
+                                                      STACK
+       Bu collectionun en büyük özelliği son giren elemanın ilk çıkmasıdır.
+
+                                                      QUEUE
+       Bu collectionun en büyük özelliği ilk  giren elemanın ilk çıkmasıdır.
+
+                                                      TREEMAP
+       Key sıralamasına göre value'leri ekrana yazan bir collection yapısıdır.
