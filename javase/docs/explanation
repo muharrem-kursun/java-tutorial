@@ -1,0 +1,17 @@
+                                                 VAR-ARGS
+   Bazen bir fonksiyona değişken sayıda eleman  göndermemiz gerekebilir.
+   Bu tür durumlarda var-args kullanabiliriz.
+   var-args değişken fonksiyona sayıda eleman yollamaya yarar.
+
+                                                  Enum
+   Enumlar anahtar kelimelerdir. enumlar kendilerine tanımlı sınıflar arasında kullanılsalarda method içerisinde kullanılamazlar.
+   Eğer enumlar sınıf dışarısında kullanılırlarsa protected ve private olarak tanımlanamazlar.
+   Enumlar özel bir sınıf gibidir bu sayede yapılandırıcı ,method,değişken tanımı yapılabilir.
+
+                                                  Date
+   Date sınıfı tarih için kullanılır.1970 'ten bu zamana kadar olan zamanı referans alır.
+
+                                                  CALENDAR
+   Date sınıfı gibi tarih için kullanılır ama daha gelişmiş bir sınıftır.
+   Yılın hangi ayında olunduğu ,haftanın hangi gününde oldugu gibi özel yapıları vardır.
+   Calender sınıfı abstract bir sınıftır ve doğrudan nesnesi oluşturulamaz.
